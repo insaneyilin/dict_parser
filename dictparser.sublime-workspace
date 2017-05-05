@@ -1,0 +1,457 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"dict",
+				"dict_parser.h\t(dict_parser.h)"
+			],
+			[
+				"col",
+				"col_1"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"user",
+				"user_type.h\t(user_type.h)"
+			],
+			[
+				"Dict",
+				"DictParserTest"
+			],
+			[
+				"get_col",
+				"get_column_data"
+			],
+			[
+				"MAX",
+				"MAX_CSTR_LENGTH\t(built_in_parser_test.cpp)"
+			],
+			[
+				"line",
+				"line_1"
+			],
+			[
+				"Dic",
+				"DictParserTest"
+			],
+			[
+				"par",
+				"parse_one_line\t(dict_parser.h)"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"buil",
+				"built_in_parser.cpp\t(built_in_parser.cpp)"
+			],
+			[
+				"built",
+				"built_in_parser.h\t(built_in_parser_test.cpp)"
+			],
+			[
+				"name",
+				"namespace\t(built_in_parser_test.cpp)"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"parse",
+				"parse_array"
+			],
+			[
+				"ASS",
+				"ASSERT_TRUE(condition)\tmacro"
+			],
+			[
+				"reu",
+				"result_1"
+			],
+			[
+				"res",
+				"result_1"
+			],
+			[
+				"gt",
+				"gt_1"
+			],
+			[
+				"MAX_C",
+				"MAX_CSTR_LENGTH\t(util.h)"
+			],
+			[
+				"reuslt",
+				"result_1"
+			],
+			[
+				"str1",
+				"str_1"
+			],
+			[
+				"reusl",
+				"result_2"
+			],
+			[
+				"ASSE",
+				"ASSERT_FALSE(condition)\tmacro"
+			],
+			[
+				"double",
+				"double_t\ttypedef"
+			],
+			[
+				"ASSERT",
+				"ASSERT_TRUE(condition)\tmacro"
+			],
+			[
+				"result",
+				"result_1"
+			],
+			[
+				"incl",
+				"include_directories"
+			],
+			[
+				"add_ta",
+				"add_executable"
+			],
+			[
+				"iostr",
+				"I-iostream\tinc"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: r",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 468.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/guiyilin/workspace/cpp_projects/dict_parser",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test"
+	],
+	"file_history":
+	[
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/util.h",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/util.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/built_in_parser.h",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/user_type.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/user_type.h",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_tmp.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/built_in_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/built_in_parser.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/dict_parser.h",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/dict_parser.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/common.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/frame_content.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/frame_content.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/base_visualizer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/opengl_visualizer/glfw_viewer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/test/camera_detector_subnode_test.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/camera_shared_data.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/camera_detector_subnode.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/camera/interface/base_camera_detector.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/onboard/transform_input.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/onboard/transform_input.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/output/local/obstacle/conf/perception_onboard.flag.cn",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/camera_detector_subnode.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/opengl_visualizer/glfw_viewer.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/camera_visualizer/camera_visualizer.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/camera_visualizer/camera_visualizer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/visualization_subnode.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/onboard/visualization_subnode.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/output/local/obstacle/conf/perception_onboard.flag",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/output/local/obstacle/conf/dag_streaming.config",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/output/local/obstacle/run_obstacle_detection.sh",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/build/install/include/perception/obstacle/visualizer/opengl_visualizer/glfw_viewer.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/pcl_visualizer/pcl_visualizer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/pcl_render_util.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/obstacle/visualizer/pcl_render_util.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/pcl_visualizer/pcl_visualizer.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/build/install/include/pcl_util/pcl_types.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/onboard/event_manager.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/subnode_helper.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/subnode.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/base/object.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/event_manager.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/obstacle/onboard/visualization_subnode.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/obstacle/onboard/visualization_subnode.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/types.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/macros.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/noncopyable.h",
+		"/home/guiyilin/Codes/baidu/adu/pnc-common/src/map/pnc_map.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/onboard/synchronizer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/file_util.h",
+		"/home/guiyilin/Codes/baidu/adu/caffe/src/caffe/smartseg/point_cloud.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/onboard_main.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/CMakeLists.txt",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/onboard/CMakeLists.txt",
+		"/home/guiyilin/Codes/baidu/adu/libs-xlog/include/xlog.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/version.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/base/light.h",
+		"/home/guiyilin/Codes/baidu/adu/common/include/traffic_light_detection.pb.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/recognizer/color_recognize/classify.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/rectify/densebox/densebox_rectify.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/projection/base_lights/projection.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/projection/projection.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/projection/base_lights/projection.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/registerer.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/projection/projection.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/interface/test/test_calibration.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/projection/base_lights/test/projection_test.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/interface/base_projection.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/interface/base_projection.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/tools/visual_debug/main_window.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/traffic_light/base/test/test_define.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/version.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/dag_streaming.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/shared_data.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/dag_streaming.h",
+		"/home/guiyilin/Codes/baidu/adu/common/include/global_adc_status.pb.h",
+		"/home/guiyilin/Codes/baidu/adu/common/include/localization_pose.pb.h",
+		"/home/guiyilin/Codes/baidu/adu/common/include/routing.pb.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/transform_input.h",
+		"/home/guiyilin/Codes/baidu/adu/ros-base/include/kdl/joint.hpp",
+		"/home/guiyilin/Codes/baidu/adu/ros-base/include/kdl/segment.hpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/test/dag_streaming_test.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/test/conf/dag_streaming.config",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/subnode.cpp",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/lib/base/thread.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/build/onboard/proto/dag_config.pb.h",
+		"/home/guiyilin/.config/sublime-text-3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/home/guiyilin/.config/sublime-text-3/Packages/User/Side Bar.sublime-settings",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/onboard/hdmap_input.h",
+		"/home/guiyilin/Codes/baidu/adu/perception-trafficlights/README.md",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/libhello/libhello.h",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/libhello/libhello.cpp",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/app/main.cpp",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/helloworld.sublime-project",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/libhello/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/helloworld/app/CMakeLists.txt",
+		"/home/guiyilin/.config/sublime-text-3/Packages/User/CscopeSublime.sublime-settings",
+		"/home/guiyilin/.config/sublime-text-3/Packages/Cscope/CscopeSublime.sublime-settings",
+		"/home/guiyilin/.config/sublime-text-3/Packages/User/SublimeClang.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"line_1",
+			"split",
+			",",
+			"resutl_1",
+			"caros",
+			"_transform_input",
+			"init",
+			"\"\",\n",
+			"_type",
+			"FLAGS_onboard_camera_tracker",
+			"_camera_object_data",
+			"get_velocity_src_position",
+			"draw_objects",
+			"render",
+			"cloudVerts",
+			"render_objects",
+			"enable_hdmap_input",
+			"FLAGS_flagfile",
+			"dag_config_path",
+			"No such",
+			"SingleLightsBasedProjection",
+			"SingleBoundaryBasedProjection",
+			"FLAGS_traffic_light_projection",
+			"BaseProjectionRegisterer",
+			"ros",
+			"_ros_io"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\", \""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CppYCM.2":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "",
+	"project": "dictparser.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 397.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
