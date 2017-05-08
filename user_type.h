@@ -3,8 +3,8 @@
 // @file: user_type.h
 // @brief: A user-defined struct example.
 
-#ifndef _GOODCODER_GUIYILIN_USER_TYPE_H_
-#define _GOODCODER_GUIYILIN_USER_TYPE_H_
+#ifndef GOODCODER_GUIYILIN_DICT_PARSER_USER_TYPE_H
+#define GOODCODER_GUIYILIN_DICT_PARSER_USER_TYPE_H
 
 #include <string>
 
@@ -28,4 +28,4 @@ bool parse(const std::string& str, FooStruct* result);
 
 }  // namespace dictparser
 
-#endif // _GOODCODER_GUIYILIN_USER_TYPE_H_
+#endif // GOODCODER_GUIYILIN_DICT_PARSER_USER_TYPE_H

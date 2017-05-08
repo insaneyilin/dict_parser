@@ -4,8 +4,8 @@
 // @brief: DictParser class declaration, this class can parse one line of the dict
 //         and get data at a specific column.
 
-#ifndef _GOODCODER_GUIYILIN_DICT_PARSER_H_
-#define _GOODCODER_GUIYILIN_DICT_PARSER_H_
+#ifndef GOODCODER_GUIYILIN_DICT_PARSER_DICT_PARSER_H
+#define GOODCODER_GUIYILIN_DICT_PARSER_DICT_PARSER_H
 
 #include <cstdio>
 #include <iostream>
@@ -87,4 +87,4 @@ bool DictParser::get_column_data(const int index, T* result) {
 
 }  // namespace dictparser
 
-#endif  // _GOODCODER_GUIYILIN_DICT_PARSER_H_
+#endif  // GOODCODER_GUIYILIN_DICT_PARSER_DICT_PARSER_H

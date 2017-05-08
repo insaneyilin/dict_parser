@@ -4,8 +4,8 @@
 // @brief: Declaration of some functions for parsing buiil-in types (int, double, 
 //         std::string, c-style string and std::vector)
 
-#ifndef _GOODCODER_GUIYILIN_BUILT_IN_PARSER_H_
-#define _GOODCODER_GUIYILIN_BUILT_IN_PARSER_H_
+#ifndef GOODCODER_GUIYILIN_DICT_PARSER_BUILT_IN_PARSER_H
+#define GOODCODER_GUIYILIN_DICT_PARSER_BUILT_IN_PARSER_H
 
 #include <cstdio>
 #include <iostream>
@@ -117,4 +117,4 @@ bool parse(const std::string& str, std::vector<T>* result) {
 
 }  // namespace dictparser
 
-#endif  // _GOODCODER_GUIYILIN_BUILT_IN_PARSER_H_
+#endif  // GOODCODER_GUIYILIN_DICT_PARSER_BUILT_IN_PARSER_H

@@ -14,7 +14,7 @@ bool parse(const std::string& str, int* result) {
         return false;
     }
 
-    char *ptr_end;
+    char *ptr_end = NULL;
     *result = static_cast<int>(std::strtol(str.c_str(), &ptr_end, 10));
 
     if (*result != 0) {

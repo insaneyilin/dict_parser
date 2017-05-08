@@ -3,8 +3,8 @@
 // @file: util.h
 // @brief: Some utility functions and constants definitions.
 
-#ifndef _GOODCODER_GUIYILIN_UTIL_H_
-#define _GOODCODER_GUIYILIN_UTIL_H_
+#ifndef GOODCODER_GUIYILIN_DICT_PARSER_UTIL_H
+#define GOODCODER_GUIYILIN_DICT_PARSER_UTIL_H
 
 #include <cstdio>
 #include <iostream>
@@ -37,4 +37,4 @@ bool split(const std::string &str, char separator, std::vector<std::string>* res
 }  // namespace util
 }  // namespace dictparser
 
-#endif  // _GOODCODER_GUIYILIN_UTIL_H_
+#endif  // GOODCODER_GUIYILIN_DICT_PARSER_UTIL_H

@@ -12,7 +12,7 @@
 #include "dict_parser.h"
 
 // A dictionary containing multiple lines
-std::string dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
+std::string g_dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
         "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
         "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
         "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
@@ -41,7 +41,7 @@ std::string dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
 int main(int argc, char **argv)
 {
     std::istringstream iss;
-    iss.str(dict);
+    iss.str(g_dict);
 
     // Parse dict. line by line
     for (std::string line; std::getline(iss, line); ) {
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
         std::cout << column_1 << std::endl;
 
         // Column 2
-        int column_2;
+        int column_2 = 0;
         if (!parser.get_column_data(2, &column_2)) {
             std::cerr << "Failed to get column data at index: " << 2 << std::endl;
             return 1;
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
         std::cout << column_2 << std::endl;
 
         // Column 3
-        double column_3;
+        double column_3 = 0.0;
         if (!parser.get_column_data(3, &column_3)) {
             std::cerr << "Failed to get column data at index: " << 3 << std::endl;
             return 1;
