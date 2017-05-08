@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 
+set(CMAKE_C_COMPILER "gcc")
+set(CMAKE_CXX_COMPILER "g++")
+
 project(dict_parser)
 
 add_definitions(-std=c++11)

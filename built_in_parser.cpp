@@ -4,6 +4,7 @@
 // @brief: Implementation of some functions for parsing buiil-in types.
 
 #include "built_in_parser.h"
+#include <cmath>
 
 namespace dictparser {
 

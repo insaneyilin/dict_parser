@@ -12,7 +12,7 @@
 #include "dict_parser.h"
 
 // A dictionary containing multiple lines
-char* dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
+std::string dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
         "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
         "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
         "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
