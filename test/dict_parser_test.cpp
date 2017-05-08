@@ -1,3 +1,8 @@
+// Copyright 2017 Baidu Inc. All Rights Reserved.
+// @author: Yilin Gui (guiyilin@baidu.com)
+// @file: dict_parser_test.cpp
+// @brief: Unittest for DictParser class.
+
 #include <climits>
 #include <cmath>
 #include <string>
@@ -9,7 +14,6 @@
 
 namespace dictparser {
 
-#if 1
 class DictParserTest : public testing::Test {
 protected:
     DictParserTest() = default;
@@ -34,8 +38,8 @@ TEST_F(DictParserTest, case_empty_line) {
 }
 
 TEST_F(DictParserTest, case_invalid) {
-    std::string line = "-3.412\t2:1,2,3\tasdf\n";
-    ASSERT_TRUE(_dict_parser->parse_one_line(line));
+    std::string line_1 = "-3.412\t2:1,2,3\tasdf\n";
+    ASSERT_TRUE(_dict_parser->parse_one_line(line_1));
 
     std::vector<int> col_1;
     ASSERT_FALSE(_dict_parser->get_column_data(1, &col_1));
@@ -167,8 +171,8 @@ TEST_F(DictParserTest, case_mix_columns) {
 }
 
 TEST_F(DictParserTest, case_user_defined_type) {
-    std::string line = "haha\t19 8.23 Peter\t4:4,2,5,-1\t42\n";
-    ASSERT_TRUE(_dict_parser->parse_one_line(line));
+    std::string line_1 = "haha\t19 8.23 Peter\t4:4,2,5,-1\t42\n";
+    ASSERT_TRUE(_dict_parser->parse_one_line(line_1));
 
     std::string col_0 = "";
     ASSERT_TRUE(_dict_parser->get_column_data(0, &col_0));
@@ -179,6 +183,39 @@ TEST_F(DictParserTest, case_user_defined_type) {
     EXPECT_EQ(19, col_1.a);
     EXPECT_EQ(8.23, col_1.b);
     EXPECT_EQ("Peter", col_1.c);
+
+    std::vector<int> col_2;
+    std::vector<int> gt_col_2 = {4, 2, 5, -1};
+    ASSERT_TRUE(_dict_parser->get_column_data(2, &col_2));
+    EXPECT_EQ(gt_col_2.size(), col_2.size());
+    for (size_t i = 0; i < col_2.size(); ++i) {
+        EXPECT_EQ(gt_col_2[i], col_2[i]);
+    }
+
+    int col_3 = 42;
+    ASSERT_TRUE(_dict_parser->get_column_data(3, &col_3));
+    EXPECT_EQ(42, col_3);
+
+    std::string line_2 = "235 -0.231 Alice\t5 12314.1231 Bob\t-214 0.000003 Casia\n";
+    ASSERT_TRUE(_dict_parser->parse_one_line(line_2));
+
+    FooStruct col_alice;
+    ASSERT_TRUE(_dict_parser->get_column_data(0, &col_alice));
+    EXPECT_EQ(235, col_alice.a);
+    EXPECT_EQ(-0.231, col_alice.b);
+    EXPECT_EQ("Alice", col_alice.c);
+
+    FooStruct col_bob;
+    ASSERT_TRUE(_dict_parser->get_column_data(1, &col_bob));
+    EXPECT_EQ(5, col_bob.a);
+    EXPECT_EQ(12314.1231, col_bob.b);
+    EXPECT_EQ("Bob", col_bob.c);
+
+    FooStruct col_casia;
+    ASSERT_TRUE(_dict_parser->get_column_data(2, &col_casia));
+    EXPECT_EQ(-214, col_casia.a);
+    EXPECT_EQ(0.000003, col_casia.b);
+    EXPECT_EQ("Casia", col_casia.c);
 }
-#endif
+
 }  // namespace dictparser

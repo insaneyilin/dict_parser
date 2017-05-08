@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"dict",
-				"dict_parser.h\t(dict_parser.h)"
+				"column",
+				"column_0"
+			],
+			[
+				"dict_par",
+				"dict_parser.h\t(dict_parser_test.cpp)"
+			],
+			[
+				"line",
+				"line_2"
+			],
+			[
+				"parse",
+				"parse_one_line"
 			],
 			[
 				"col",
-				"col_1"
+				"col_3"
+			],
+			[
+				"gt_",
+				"gt_col_2"
+			],
+			[
+				"dict",
+				"dict_parser.h\t(dict_parser.h)"
 			],
 			[
 				"in",
@@ -30,10 +50,6 @@
 			[
 				"MAX",
 				"MAX_CSTR_LENGTH\t(built_in_parser_test.cpp)"
-			],
-			[
-				"line",
-				"line_1"
 			],
 			[
 				"Dic",
@@ -62,10 +78,6 @@
 			[
 				"size",
 				"size_t"
-			],
-			[
-				"parse",
-				"parse_array"
 			],
 			[
 				"ASS",
@@ -190,23 +202,26 @@
 	"expanded_folders":
 	[
 		"/home/guiyilin/workspace/cpp_projects/dict_parser",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/demo",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/test"
 	],
 	"file_history":
 	[
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/CMakeLists.txt",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/CMakeLists.txt",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/util.h",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/util.cpp",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/built_in_parser.h",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/util.h",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/user_type.cpp",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/user_type.h",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_tmp.cpp",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/built_in_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/demo/dict_parser_demo.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/demo/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/CMakeLists.txt",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/built_in_parser.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/built_in_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/CMakeLists.txt",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/built_in_parser.h",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/dict_parser.h",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/dict_parser.cpp",
-		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_test.cpp",
+		"/home/guiyilin/workspace/cpp_projects/dict_parser/test/dict_parser_tmp.cpp",
 		"/home/guiyilin/workspace/cpp_projects/dict_parser/common.h",
 		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/frame_content.cpp",
 		"/home/guiyilin/Codes/baidu/adu/perception-lab/obstacle/visualizer/frame_content.h",
@@ -370,7 +385,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"layout":
 	{

@@ -14,3 +14,4 @@ file(GLOB DICT_PARSER_SRCS "*.cpp")
 add_library(${PROJECT_NAME} ${DICT_PARSER_SRCS})
 
 add_subdirectory(test)
+add_subdirectory(demo)

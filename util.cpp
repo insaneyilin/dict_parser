@@ -1,7 +1,7 @@
 // Copyright 2017 Baidu Inc. All Rights Reserved.
 // @author: Yilin Gui (guiyilin@baidu.com)
 // @file: util.cpp
-// @brief:
+// @brief: Utility functions.
 
 #include "util.h"
 

@@ -1,3 +1,8 @@
+// Copyright 2017 Baidu Inc. All Rights Reserved.
+// @author: Yilin Gui (guiyilin@baidu.com)
+// @file: built_in_parser_test.cpp
+// @brief: Unittest for built-in parse functions.
+
 #include <climits>
 #include <cmath>
 #include <string>
@@ -11,7 +16,6 @@ namespace dictparser {
 ///////////////////////////////////////////////////////////////////////////////
 // Test parse int values
 
-#if 1
 TEST(ParseIntTest, Positive) {
     int result_20 = 0;
     std::string str_20 = "20";
@@ -321,5 +325,4 @@ TEST(ParseArrayTest, CStrArray) {
 }
 */
 
-#endif
 }  // namespace dictparser

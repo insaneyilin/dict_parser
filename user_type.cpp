@@ -1,7 +1,7 @@
 // Copyright 2017 Baidu Inc. All Rights Reserved.
 // @author: Yilin Gui (guiyilin@baidu.com)
 // @file: user_type.cpp
-// @brief:
+// @brief: A user-defined struct example.
 
 #include "user_type.h"
 

@@ -1,8 +1,5 @@
 project(dict_parser_test)
 
-# add_executable(dict_parser_test_tmp dict_parser_tmp.cpp)
-# target_link_libraries(dict_parser_test_tmp dict_parser)
-
 add_executable(built_in_parser_test built_in_parser_test.cpp)
 target_link_libraries(built_in_parser_test dict_parser gtest gtest_main pthread)  # link pthread to avoid linking error
 
