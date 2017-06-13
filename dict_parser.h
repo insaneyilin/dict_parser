@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 #include <algorithm>
 #include <numeric>
 
@@ -22,16 +23,15 @@ namespace dictparser {
 class DictParser {
 public:
     DictParser() = default;
-    ~DictParser() = default;
+    ~DictParser();
 
     /**
      * @brief: Parse one line of the dictionary and save original columns string.
      *
      * @param [in] const std::string&: input line string
-     * @return bool
+     * @return ERROR_CODE
      */
-    bool parse_one_line(const std::string& line);
-
+    ERROR_CODE parse_one_line(const std::string& line);
 
     /**
      * @brief: Get number of columns. Should be called after parse_one_line()
@@ -48,10 +48,10 @@ public:
      * @param [in] const int: column index
      * @param [in/out] T*: parsed result
      * 
-     * @return bool
+     * @return ERROR_CODE
      */
     template<typename T>
-    bool get_column_data(const int index, T* result);
+    ERROR_CODE get_column_data(const int index, T* result);
 
     /**
      * @brief: Get a c-style array at a specific column.
@@ -60,29 +60,51 @@ public:
      * @param [in] const int: maximum length of the input array
      * @param [in/out] T*: parsed result
      * 
-     * @return bool
+     * @return ERROR_CODE
      */
-    bool get_column_char_array(const int index, const int max_length, char* result);
+    ERROR_CODE get_column_char_array(const int index, const int max_length, char* result);
+
+    /**
+     * @brief: Set types of columns.
+     *
+     * @param [in] const std::vector<std::string>&: types of columns
+     * 
+     * @return ERROR_CODE
+     */
+    void set_columns_types(const std::vector<std::string>& columns_types);
+
+    /**
+     * @brief: Print columns values of current line.
+     * 
+     * @param [in] const int: column index
+     * 
+     * @return ERROR_CODE
+     */
+    bool print_column_data(const int index);
+
+    void set_user_type_printer(const std::string& type, ColumnPrinter* printer);
 
 private:
     std::vector<std::string> _columns;  // to save original columns strings
+    std::vector<std::string> _columns_types;  // to save types of columns
+    std::map<std::string, ColumnPrinter*> _user_type_printers;
 
     DISALLOW_COPY_AND_ASSIGN(DictParser);
 };
 
 template<typename T>
-bool DictParser::get_column_data(const int index, T* result) {
+ERROR_CODE DictParser::get_column_data(const int index, T* result) {
     if (index < 0 || index >= _columns.size()) {
         std::cerr << "Out of range! The columns size is: " << _columns.size() << std::endl;
-        return false;
+        return OUT_OF_RANGE;
     }
 
-    if (!parse(_columns[index], result)) {
+    if (parse(_columns[index], result) != RET_SUCCESS) {
         std::cerr << "Failed to parse column at index: " << index << std::endl;
-        return false;
+        return RET_FAILURE;
     }
 
-    return true;
+    return RET_SUCCESS;
 }
 
 }  // namespace dictparser

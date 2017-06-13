@@ -19,8 +19,24 @@
 
 namespace dictparser {
 
+enum ERROR_CODE {
+    RET_SUCCESS = 0,
+    RET_FAILURE = 1,
+    EMPTY_INPUT = 2,
+    WRONG_ARRAY_SIZE = 3,
+    OUT_OF_RANGE = 4,
+    ERROR_CODE_COUNT = 5
+};
+
 // Maximum length of a c-style string
 const size_t MAX_CSTR_LENGTH = 1024;
+
+class ColumnPrinter {
+public:
+    ColumnPrinter() = default;
+    virtual ~ColumnPrinter() = default;
+    virtual bool print_column_data(const int index) = 0;
+};
 
 namespace util {
 

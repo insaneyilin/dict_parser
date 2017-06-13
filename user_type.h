@@ -7,6 +7,7 @@
 #define GOODCODER_GUIYILIN_DICT_PARSER_USER_TYPE_H
 
 #include <string>
+#include "util.h"
 
 namespace dictparser {
 
@@ -17,14 +18,28 @@ struct FooStruct {
     std::string c;
 };
 
+class DictParser;
+
+// A helper class to print FooStruct objects
+class FooStructPrinter : ColumnPrinter {
+public:
+    FooStructPrinter(DictParser* parser);
+    virtual ~FooStructPrinter();
+
+    bool print_column_data(const int index);
+
+private:
+    DictParser* _parser;
+};
+
 /**
  * @brief: Parse a string to a FooStruct
  *
  * @param [in] const std::string&: input string
  * @param [in/out] FooStruct*: parsed result
- * @return bool
+ * @return ERROR_CODE
  */
-bool parse(const std::string& str, FooStruct* result);
+ERROR_CODE parse(const std::string& str, FooStruct* result);
 
 }  // namespace dictparser
 

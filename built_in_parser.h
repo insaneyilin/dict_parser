@@ -25,51 +25,51 @@ using util::split;
  *
  * @param [in] const std::string&: input string
  * @param [in/out] int: parsed result
- * @return bool
+ * @return ERROR_CODE
  */
-bool parse(const std::string& str, int* result);
+ERROR_CODE parse(const std::string& str, int* result);
 
 /**
  * @brief: Parse a string to a double value
  *
  * @param [in] const std::string&: input string
  * @param [in/out] int: parsed result
- * @return bool
+ * @return ERROR_CODE
  */
-bool parse(const std::string& str, double* result);
+ERROR_CODE parse(const std::string& str, double* result);
 
 /**
  * @brief: Parse a string to a string
  *
  * @param [in] const std::string&: input string
  * @param [in/out] int: parsed result
- * @return bool
+ * @return ERROR_CODE
  */
-bool parse(const std::string& str, std::string* result);
+ERROR_CODE parse(const std::string& str, std::string* result);
 
 /**
  * @brief: Parse a string to a c-style string
  *
  * @param [in] const std::string&: input string
  * @param [in/out] int: parsed result
- * @return bool
+ * @return ERROR_CODE
  */
-bool parse(const std::string& str, size_t max_length, char* result);
+ERROR_CODE parse(const std::string& str, size_t max_length, char* result);
 
 /**
  * @brief: Parse a string to an array
  *
  * @param [in] const std::string&: input string
  * @param [in/out] std::vector<T>*: parsed result
- * @return bool
+ * @return ERROR_CODE
  *
  * @note the string format is "num:item1,item2,item3", where "num" is the number of items
  */
 template<typename T>
-bool parse(const std::string& str, std::vector<T>* result) {
+ERROR_CODE parse(const std::string& str, std::vector<T>* result) {
 
     if (str.empty()) {
-        return false;
+        return EMPTY_INPUT;
     }
 
     int num_items = 0;
@@ -79,15 +79,15 @@ bool parse(const std::string& str, std::vector<T>* result) {
     {
         std::vector<std::string> tmp;
         if (!split(str, ':', &tmp)) {
-            return false;
+            return RET_FAILURE;
         }
         if (tmp.size() < 2) {
-            return false;
+            return RET_FAILURE;
         }
         char* ptr_end;
         num_items = static_cast<int>(std::strtol(tmp.front().c_str(), &ptr_end, 10));
         if (num_items < 0) {
-            return false;
+            return RET_FAILURE;
         }
 
         items_str = std::accumulate(tmp.begin() + 1, tmp.end(), std::string(""));
@@ -96,23 +96,23 @@ bool parse(const std::string& str, std::vector<T>* result) {
     // split each item into a vector
     std::vector<std::string> items;
     if (!split(items_str, ',', &items)) {
-        return false;
+        return RET_FAILURE;
     }
 
     if (items.size() != num_items)
     {
-        return false;
+        return WRONG_ARRAY_SIZE;
     }
 
     // parse each item
     result->resize(num_items);
     for (size_t i = 0; i < num_items; ++i) {
-        if (!parse(items[i], &(result->at(i)))) {
-            return false;
+        if (parse(items[i], &(result->at(i))) != RET_SUCCESS) {
+            return RET_FAILURE;
         }
     }
 
-    return true;
+    return RET_SUCCESS;
 }
 
 }  // namespace dictparser

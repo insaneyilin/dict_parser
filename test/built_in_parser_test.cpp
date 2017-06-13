@@ -9,6 +9,7 @@
 
 #include <gtest/gtest.h>
 
+#include "util.h"
 #include "built_in_parser.h"
 
 namespace dictparser {
@@ -19,43 +20,43 @@ namespace dictparser {
 TEST(ParseIntTest, Positive) {
     int result_20 = 0;
     std::string str_20 = "20";
-    ASSERT_TRUE(parse(str_20, &result_20));
+    EXPECT_EQ(RET_SUCCESS, parse(str_20, &result_20));
     EXPECT_EQ(20, result_20);
 
     int result_728349352 = 0;
     std::string str_728349352 = "728349352";
-    ASSERT_TRUE(parse(str_728349352, &result_728349352));
+    EXPECT_EQ(RET_SUCCESS, parse(str_728349352, &result_728349352));
     EXPECT_EQ(728349352, result_728349352);    
 
     int result_INT_MAX = 0;
     std::string str_INT_MAX = std::to_string(INT_MAX);
-    ASSERT_TRUE(parse(str_INT_MAX, &result_INT_MAX));
+    EXPECT_EQ(RET_SUCCESS, parse(str_INT_MAX, &result_INT_MAX));
     EXPECT_EQ(INT_MAX, result_INT_MAX);    
 }
 
 TEST(ParseIntTest, Negative) {
     int result_negative1 = 0;
     std::string str_negative1 = "-99281";
-    ASSERT_TRUE(parse(str_negative1, &result_negative1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_negative1, &result_negative1));
     EXPECT_EQ(-99281, result_negative1);
 
     int result_negative2 = 0;
     std::string str_negative2 = "-3";
-    ASSERT_TRUE(parse(str_negative2, &result_negative2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_negative2, &result_negative2));
     EXPECT_EQ(-3, result_negative2);
 }
 
 TEST(ParseIntTest, Zero) {
     int result_zero = -1;
     std::string str_zero = "0";
-    ASSERT_TRUE(parse(str_zero, &result_zero));
+    EXPECT_EQ(RET_SUCCESS, parse(str_zero, &result_zero));
     EXPECT_EQ(0, result_zero);
 }
 
 TEST(ParseIntTest, Invalid) {
     int result_invalid = -1;
     std::string str_invalid = "asdf*1";
-    ASSERT_FALSE(parse(str_invalid, &result_invalid));
+    EXPECT_EQ(RET_FAILURE, parse(str_invalid, &result_invalid));
     EXPECT_EQ(0, result_invalid);
 }
 
@@ -67,17 +68,17 @@ TEST(ParseFloatTest, Positive) {
 
     double result_1 = 0.0f;
     std::string str_1 = "4.19234878";
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     ASSERT_TRUE(fabs(result_1 - 4.19234878) < EPS);
 
     double result_2 = 0.0f;
     std::string str_2 = "1321541234.1";
-    ASSERT_TRUE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_2, &result_2));
     ASSERT_TRUE(fabs(result_2 - 1321541234.1) < EPS);
 
     double result_3 = -1.0f;
     std::string str_3 = "0.00001";
-    ASSERT_TRUE(parse(str_3, &result_3));
+    EXPECT_EQ(RET_SUCCESS, parse(str_3, &result_3));
     ASSERT_TRUE(fabs(result_3 - 0.00001) < EPS);
 }
 
@@ -86,17 +87,17 @@ TEST(ParseFloatTest, Negative) {
 
     double result_1 = 0.0f;
     std::string str_1 = "-21.363859173";
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     ASSERT_TRUE(fabs(-21.363859173 - result_1) < EPS);
 
     double result_2 = 0.0f;
     std::string str_2 = "-827192437.234";
-    ASSERT_TRUE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_2, &result_2));
     ASSERT_TRUE(fabs(-827192437.234 - result_2) < EPS);
 
     double result_3 = 1.0f;
     std::string str_3 = "-0.00001";
-    ASSERT_TRUE(parse(str_3, &result_3));
+    EXPECT_EQ(RET_SUCCESS, parse(str_3, &result_3));
     ASSERT_TRUE(fabs(-0.00001 - result_3) < EPS);
 }
 
@@ -105,32 +106,32 @@ TEST(ParseFloatTest, Zero) {
 
     double result_1 = 1.0;
     std::string str_1 = "0.0";
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     ASSERT_TRUE(fabs(result_1) < EPS);
 
     double result_2 = 1.0;
     std::string str_2 = "0.00000";
-    ASSERT_TRUE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_2, &result_2));
     ASSERT_TRUE(fabs(result_2) < EPS);
 
     double result_3 = 1.0;
     std::string str_3 = "-0.0000000";
-    ASSERT_TRUE(parse(str_3, &result_3));
+    EXPECT_EQ(RET_SUCCESS, parse(str_3, &result_3));
     ASSERT_TRUE(fabs(result_3) < EPS);
 }
 
 TEST(ParseFloatTest, Invalid) {
     double result_1 = 1.0;
     std::string str_1 = "0.0.0";
-    ASSERT_FALSE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_FAILURE, parse(str_1, &result_1));
 
     double result_2 = 0.0;
     std::string str_2 = "asdfgaq**0.0.0";
-    ASSERT_FALSE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_FAILURE, parse(str_2, &result_2));
 
     double result_3 = 0.0;
     std::string str_3 = "-hfgaq$^&!";
-    ASSERT_FALSE(parse(str_3, &result_3));
+    EXPECT_EQ(RET_FAILURE, parse(str_3, &result_3));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -139,27 +140,27 @@ TEST(ParseFloatTest, Invalid) {
 TEST(ParseStringTest, CppStr) {
     std::string result_1;
     std::string str_1 = "";
-    ASSERT_FALSE(parse(str_1, &result_1));
+    EXPECT_EQ(EMPTY_INPUT, parse(str_1, &result_1));
 
     std::string result_2;
     std::string str_2 = "u2834na*&1A.";
-    ASSERT_TRUE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_2, &result_2));
     EXPECT_EQ(std::string("u2834na*&1A."), result_2);
 
     std::string result_3;
     std::string str_3 = "oo   asdf --- __ !!( a";
-    ASSERT_TRUE(parse(str_3, &result_3));
+    EXPECT_EQ(RET_SUCCESS, parse(str_3, &result_3));
     EXPECT_EQ("oo   asdf --- __ !!( a", result_3);
 }
 
 TEST(ParseStringTest, CStr) {
     char result_1[MAX_CSTR_LENGTH];
     std::string str_1 = "";
-    ASSERT_FALSE(parse(str_1, MAX_CSTR_LENGTH, result_1));
+    EXPECT_EQ(EMPTY_INPUT, parse(str_1, MAX_CSTR_LENGTH, result_1));
 
     char result_2[MAX_CSTR_LENGTH];
     std::string str_2 = "** _ 1adf 23 --$@ ad ";
-    ASSERT_TRUE(parse(str_2, MAX_CSTR_LENGTH, result_2));
+    EXPECT_EQ(RET_SUCCESS, parse(str_2, MAX_CSTR_LENGTH, result_2));
     EXPECT_STREQ("** _ 1adf 23 --$@ ad ", result_2);    
 }
 
@@ -170,7 +171,7 @@ TEST(ParseArrayTest, IntArray) {
     std::vector<int> result_1;
     std::string str_1 = "3:4,2,5";
     std::vector<int> gt_1 = {4, 2, 5};
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     EXPECT_EQ(gt_1.size(), result_1.size());
     for (size_t i = 0; i < gt_1.size(); ++i) {
         EXPECT_EQ(gt_1[i], result_1[i]);
@@ -178,16 +179,16 @@ TEST(ParseArrayTest, IntArray) {
 
     std::vector<int> result_2;
     std::string str_2 = "4:4,2,5";
-    ASSERT_FALSE(parse(str_2, &result_2));
+    EXPECT_EQ(WRONG_ARRAY_SIZE, parse(str_2, &result_2));
 
     std::vector<int> result_3;
     std::string str_3 = "1:4,2,5";
-    ASSERT_FALSE(parse(str_3, &result_3));
+    EXPECT_EQ(WRONG_ARRAY_SIZE, parse(str_3, &result_3));
 
     std::vector<int> result_4;
     std::string str_4 = "1:123";
     std::vector<int> gt_4 = {123};
-    ASSERT_TRUE(parse(str_4, &result_4));
+    EXPECT_EQ(RET_SUCCESS, parse(str_4, &result_4));
     EXPECT_EQ(gt_4.size(), result_4.size());
     for (size_t i = 0; i < gt_4.size(); ++i) {
         EXPECT_EQ(gt_4[i], result_4[i]);
@@ -207,7 +208,7 @@ TEST(ParseArrayTest, IntArray) {
             -677, -106, 429, 136, -361, -219, -407, -97, -863, 461, -72, -778, 867, 182, -569, 
             7, -327, 275, -793, -799, -894, -514, 739, 351, -558, -140, 932, 414, -55, 150, 
             -555, 117, 199, -298, -221, 378, -976, -834, -218, 708, -153, -6};
-    ASSERT_TRUE(parse(str_5, &result_5));
+    EXPECT_EQ(RET_SUCCESS, parse(str_5, &result_5));
     EXPECT_EQ(gt_5.size(), result_5.size());
     for (size_t i = 0; i < gt_5.size(); ++i) {
         EXPECT_EQ(gt_5[i], result_5[i]);
@@ -220,7 +221,7 @@ TEST(ParseArrayTest, FloatArray) {
     std::vector<double> result_1;
     std::string str_1 = "1:0.01";
     std::vector<double> gt_1 = {0.01};
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     EXPECT_EQ(gt_1.size(), result_1.size());
     for (size_t i = 0; i < gt_1.size(); ++i) {
         ASSERT_TRUE(fabs(gt_1[i] - result_1[i]) < EPS);
@@ -228,16 +229,16 @@ TEST(ParseArrayTest, FloatArray) {
 
     std::vector<double> result_2;
     std::string str_2 = "-2:0.01";
-    ASSERT_FALSE(parse(str_2, &result_2));
+    EXPECT_EQ(RET_FAILURE, parse(str_2, &result_2));
 
     std::vector<double> result_3;
     std::string str_3 = "100:0.01";
-    ASSERT_FALSE(parse(str_3, &result_3));
+    EXPECT_EQ(WRONG_ARRAY_SIZE, parse(str_3, &result_3));
 
     std::vector<double> result_4;
     std::string str_4 = "5:0.01,1,2.13,3.14,-20";
     std::vector<double> gt_4 = {0.01, 1, 2.13, 3.14, -20};
-    ASSERT_TRUE(parse(str_4, &result_4));
+    EXPECT_EQ(RET_SUCCESS, parse(str_4, &result_4));
     EXPECT_EQ(gt_4.size(), result_4.size());
     for (size_t i = 0; i < gt_4.size(); ++i) {
         ASSERT_TRUE(fabs(gt_4[i] - result_4[i]) < EPS);
@@ -286,7 +287,7 @@ TEST(ParseArrayTest, FloatArray) {
             39.3897589887, 50.1795255415, 94.250786672, 34.687694972, -2.82471437001, 
             77.2342356368, -92.9804482073, -86.4105085865, 83.3527526937, 94.1207450396, 
             94.8065460953};
-    ASSERT_TRUE(parse(str_5, &result_5));
+    EXPECT_EQ(RET_SUCCESS, parse(str_5, &result_5));
     EXPECT_EQ(gt_5.size(), result_5.size());
     for (size_t i = 0; i < gt_5.size(); ++i) {
         ASSERT_TRUE(fabs(gt_5[i] - result_5[i]) < EPS);
@@ -302,7 +303,7 @@ TEST(ParseArrayTest, CppStrArray) {
             "our", "fathers", "brought", "forth", "on", "this", "continent", "a", "new", 
             "nation", "conceived", "in", "Liberty", "and", "dedicated", "to", "the", 
             "proposition", "that", "all", "men", "are", "created", "equal"};
-    ASSERT_TRUE(parse(str_1, &result_1));
+    EXPECT_EQ(RET_SUCCESS, parse(str_1, &result_1));
     EXPECT_EQ(gt_1.size(), result_1.size());
     for (size_t i = 0; i < gt_1.size(); ++i) {
         EXPECT_EQ(gt_1[i], result_1[i]);
@@ -310,11 +311,11 @@ TEST(ParseArrayTest, CppStrArray) {
 
     std::vector<std::string> result_2;
     std::string str_2 = "3:hello,world";
-    ASSERT_FALSE(parse(str_2, &result_2));
+    EXPECT_EQ(WRONG_ARRAY_SIZE, parse(str_2, &result_2));
 
     std::vector<std::string> result_3;
     std::string str_3 = "0:hello,world";
-    ASSERT_FALSE(parse(str_3, &result_3));
+    EXPECT_EQ(WRONG_ARRAY_SIZE, parse(str_3, &result_3));
 }
 
 // There is no way to store C-style arrays in vectors (or in any other standard library container).

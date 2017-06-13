@@ -8,21 +8,44 @@
 #include <iostream>
 #include <sstream>
 
+#include "dict_parser.h"
+
 namespace dictparser {
 
-bool parse(const std::string& str, FooStruct* result) {
-    if (str.empty()) {
+FooStructPrinter::FooStructPrinter(DictParser* parser) {
+    _parser = parser;
+}
+
+FooStructPrinter::~FooStructPrinter() {
+    _parser = NULL;
+}
+
+bool FooStructPrinter::print_column_data(const int index) {
+    FooStruct foo;
+
+    if (_parser->get_column_data(index, &foo) != RET_SUCCESS) {
+        std::cerr << "Failed to get column data at index: " << index << std::endl;
         return false;
+    }
+    std::cout << "Column " << index << ": ";
+    std::cout << foo.a << " " << foo.b << " " << foo.c << std::endl;
+
+    return true;
+}
+
+ERROR_CODE parse(const std::string& str, FooStruct* result) {
+    if (str.empty()) {
+        return EMPTY_INPUT;
     }
 
     std::istringstream iss(str);
     if (!iss.good()) {
-        return false;
+        return RET_FAILURE;
     }
 
     iss >> result->a >> result->b >> result->c;
 
-    return true;
+    return RET_SUCCESS;
 }
 
 }  // namespace dictparser

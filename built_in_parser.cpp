@@ -8,41 +8,41 @@
 
 namespace dictparser {
 
-bool parse(const std::string& str, int* result) {
+ERROR_CODE parse(const std::string& str, int* result) {
     if (str.empty()) {
         std::cerr << "Cannot parse an empty string to an integer!" << std::endl;
-        return false;
+        return EMPTY_INPUT;
     }
 
     char *ptr_end = NULL;
     *result = static_cast<int>(std::strtol(str.c_str(), &ptr_end, 10));
 
     if (*result != 0) {
-        return true;
+        return RET_SUCCESS;
     }
 
     // check whether the input is a real zero
     for (size_t i = 0; i < str.length(); ++i) {
         if (str[i] != '0') {
             std::cerr << "Failed to parse " << str << " to an integer!" << std::endl;
-            return false;
+            return RET_FAILURE;
         }
     }
 
-    return true;
+    return RET_SUCCESS;
 }
 
-bool parse(const std::string& str, double* result) {
+ERROR_CODE parse(const std::string& str, double* result) {
     if (str.empty()) {
         std::cerr << "Cannot parse an empty string to a double!" << std::endl;
-        return false;
+        return EMPTY_INPUT;
     }
 
     *result = std::atof(str.c_str());
 
     const double EPS = 1e-10;
     if (fabs(*result) > EPS) {
-        return true;
+        return RET_SUCCESS;
     }
 
     // check whether the input is a real zero
@@ -67,16 +67,16 @@ bool parse(const std::string& str, double* result) {
     }
     if (!is_zero) {
         std::cerr << "Failed to parse " << str << " to a double!" << std::endl;
-        return false;
+        return RET_FAILURE;
     }
 
-    return true;
+    return RET_SUCCESS;
 }
 
-bool parse(const std::string& str, std::string* result) {
+ERROR_CODE parse(const std::string& str, std::string* result) {
     if (str.empty()) {
         std::cerr << "Cannot parse an empty string!" << std::endl;
-        return false;
+        return EMPTY_INPUT;
     }
 
     (*result).clear();
@@ -88,13 +88,13 @@ bool parse(const std::string& str, std::string* result) {
         (*result) += str[i];
     }
 
-    return true;
+    return RET_SUCCESS;
 }
 
-bool parse(const std::string& str, size_t max_length, char* result) {
+ERROR_CODE parse(const std::string& str, size_t max_length, char* result) {
     if (str.empty()) {
         std::cerr << "Cannot parse an empty string!" << std::endl;
-        return false;
+        return EMPTY_INPUT;
     }
 
     size_t len = str.length();
@@ -102,7 +102,7 @@ bool parse(const std::string& str, size_t max_length, char* result) {
     {
         if (result == NULL || i >= max_length) {
             std::cerr << "Out of range! Max length of the input string is " << max_length << std::endl;
-            return false;
+            return RET_FAILURE;
         }
         if (str[i] == '\n') {
             break;
@@ -112,7 +112,7 @@ bool parse(const std::string& str, size_t max_length, char* result) {
     }
     *result = '\0';
 
-    return true;
+    return RET_SUCCESS;
 }
 
 }  // namespace dictparser
