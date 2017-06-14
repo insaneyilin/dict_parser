@@ -69,7 +69,7 @@ public:
      *
      * @param [in] const std::vector<std::string>&: types of columns
      * 
-     * @return ERROR_CODE
+     * @return 
      */
     void set_columns_types(const std::vector<std::string>& columns_types);
 
@@ -82,6 +82,14 @@ public:
      */
     bool print_column_data(const int index);
 
+    /**
+     * @brief: Set printer for user defined types
+     * 
+     * @param [in] const std::string: user defined type name
+     * @param [in] const std::string: pointer to printer for user defined type
+     * 
+     * @return 
+     */
     void set_user_type_printer(const std::string& type, ColumnPrinter* printer);
 
 private:

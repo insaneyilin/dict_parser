@@ -30,3 +30,8 @@ or
 
     cd build/demo
     ./dict_parser_demo
+    
+### Build and run demo
+
+    sh build.sh && sh run_demo.sh
+

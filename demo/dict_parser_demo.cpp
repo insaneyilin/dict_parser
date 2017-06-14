@@ -12,33 +12,8 @@
 #include "user_type.h"
 #include "dict_parser.h"
 
-// A dictionary containing multiple lines
-std::string g_dict = "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n"
-        "4:7,2,0,-20\taavvs13\t32\t-123.002\t80 123.34 Sam\n"
-        "3:9,2,6\tbsdfg\t23\t0.23145\t-64 9.213 ysfg\n"
-        "1:-10000\tldiej\t983\t648.284\t100000 890900099.123444 ieoejk\n";
-
-bool load_columns_types_config(const std::string& config_file, std::vector<std::string>* columns_types) {
+bool load_columns_types_config(const std::string& config_file, 
+        std::vector<std::string>* columns_types) {
     std::ifstream ifs(config_file.c_str());
     if (!ifs) {
         std::cerr << "Failed to open " << config_file << std::endl;
@@ -48,91 +23,72 @@ bool load_columns_types_config(const std::string& config_file, std::vector<std::
     columns_types->clear();
     while (!ifs.eof()) {
         std::string type;
-        getline(ifs, type);
-        if (ifs.bad() || ifs.fail()) {
-            std::cerr << "Failed to read " << config_file << std::endl;
-            return false;
-        }
+        std::getline(ifs, type);
         columns_types->push_back(type);
     }
 
     return true;
 }
 
-bool print_one_line(const dictparser::DictParser& dict_parser, const std::vector<std::string> &columns_types) {
+bool parse_dict_from_file(const std::string &filename, 
+        dictparser::DictParser& dict_parser) {
+    std::ifstream ifs(filename.c_str());
+    if (!ifs) {
+        std::cerr << "Failed to open dict filename " << filename << std::endl;
+        return false;
+    }
 
-}
-
-bool parse_dict_from_file(const dictparser::DictParser& dict_parser, const std::string &filename) {
+    int num_lines = 0;
+    while (!ifs.eof()) {
+        std::string line;
+        std::getline(ifs, line);
+        if (line == "\n") {
+            continue;
+        }
+        dict_parser.parse_one_line(line);
+        size_t num_cols = dict_parser.get_num_columns();
+        std::cout << "Row " << num_lines << std::endl;
+        for (size_t i = 0; i < num_cols; ++i) {
+            if (!dict_parser.print_column_data(i)) {
+                std::cerr << "Failed to print column data at index " << i << std::endl;
+                return false;
+            }
+        }
+        std::cout << std::endl;
+        ++num_lines;
+    }
 
     return true;
 }
 
-
-
 int main(int argc, char **argv)
 {
-    std::istringstream iss;
-    iss.str(g_dict);
-    
-    // Parse dict. line by line
-    for (std::string line; std::getline(iss, line); ) {
-        dictparser::DictParser parser;
-        if (parser.parse_one_line(line) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to parse one line!" << std::endl;
-            return 1;
-        }
+    if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " config_file_path dict_file_path" << std::endl;
+        return -1;
+    }
 
-        // Column 0
-        std::vector<int> column_0;
-        if (parser.get_column_data(0, &column_0) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to get column data at index: " << 0 << std::endl;
-            return 1;
-        }
-        std::cout << "Column 0: ";
-        std::cout << "[";
-        for (size_t i = 0; i < column_0.size(); ++i) {
-            std::cout << (i == 0 ? "" : ", ") << column_0[i];
-        }
-        std::cout << "]" << std::endl;
+    // Load columns types config from file
+    std::string config_file = argv[1];
+    std::vector<std::string> columns_types;
+    if (!load_columns_types_config(config_file, &columns_types)) {
+        std::cerr << "Failed to load columns types config file!" << std::endl;
+        return -1;
+    }
 
-        // Column 1
-        std::string column_1;
-        if (parser.get_column_data(1, &column_1) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to get column data at index: " << 1 << std::endl;
-            return 1;
-        }
-        std::cout << "Column 1: ";
-        std::cout << column_1 << std::endl;
+    // Set parser's columns types
+    dictparser::DictParser parser;
+    parser.set_columns_types(columns_types);
 
-        // Column 2
-        int column_2 = 0;
-        if (parser.get_column_data(2, &column_2) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to get column data at index: " << 2 << std::endl;
-            return 1;
-        }
-        std::cout << "Column 2: ";
-        std::cout << column_2 << std::endl;
+    // Set printer for user defined type
+    dictparser::ColumnPrinter* foo_printer = new dictparser::FooStructPrinter(&parser);
+    parser.set_user_type_printer(dictparser::FOO_STRUCT_TYPE_NAME, foo_printer);
 
-        // Column 3
-        double column_3 = 0.0;
-        if (parser.get_column_data(3, &column_3) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to get column data at index: " << 3 << std::endl;
-            return 1;
-        }
-        std::cout << "Column 3: ";
-        std::cout << column_3 << std::endl;
-
-        // Column 4
-        dictparser::FooStruct column_4;
-        if (parser.get_column_data(4, &column_4) != dictparser::RET_SUCCESS) {
-            std::cerr << "Failed to get column data at index: " << 4 << std::endl;
-            return 1;
-        }
-        std::cout << "Column 4: ";
-        std::cout << column_4.a << " " << column_4.b << " " << column_4.c << std::endl;
-
-        std::cout << std::endl << std::endl;
+    // Parse from data file
+    std::string dict_file = argv[2];
+    if (!parse_dict_from_file(dict_file, parser)) {
+        std::cerr << "Failed to parse dict from file " << dict_file << std::endl;
+        return -1;
     }
 
     return 0;

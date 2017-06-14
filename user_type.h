@@ -11,6 +11,8 @@
 
 namespace dictparser {
 
+const std::string FOO_STRUCT_TYPE_NAME = "FooStruct";
+
 // A simple user-defined stuct
 struct FooStruct {
     int a;
@@ -21,7 +23,7 @@ struct FooStruct {
 class DictParser;
 
 // A helper class to print FooStruct objects
-class FooStructPrinter : ColumnPrinter {
+class FooStructPrinter : public ColumnPrinter {
 public:
     FooStructPrinter(DictParser* parser);
     virtual ~FooStructPrinter();
